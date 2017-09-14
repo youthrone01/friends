@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Friends</title>
+  <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <div>
+    
+    <h1>Friends:</h1>
+    <!-- with all the data we can then construct a more structured output -->
+    <!-- {% for friend in all_friends: %}
+       <p>ID: {{ friend['id'] }}</p>
+       <p>First Name: {{ friend['first_name'] }}</p>
+       <p>Last Name: {{ friend['last_name'] }}</p>
+       <p>Occupation: {{ friend['occupation'] }}</p>
+       <hr>
+    {% endfor %} -->
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Friend Since</th>
+            <th></th>
+        </tr>
+        {% for friend in all_friends: %}
+        <tr>
+            <td>{{friend['name']}}</td>
+            <td>{{friend['age']}}</td>
+            <td>{{friend['date']}}</td>
+            <td>{{friend['year']}}</td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+
+    <br>   
+    
+    <h1>Add a Friend:</h1>
+    <form action='/friends' method='POST'>
+        <label for="name">Name:<input type="text" name="name" id="name" placeholder="F_name L_name"></label>
+        <label for="age">age:<input type="text" name="age" id="age"></label>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</body>
+</html>
